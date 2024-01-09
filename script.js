@@ -25,8 +25,10 @@ function generatePassword() {
   var SelectionUC;
   var SelectionLC;
   var SelectionN;
+  var criteria;
   var output = [];
   var quit = false;
+
   
   PLength = prompt("How many characters would you like in your password? enter between 8 and 128");
 
@@ -49,15 +51,15 @@ function generatePassword() {
 
 // Check to see that a character type was selected
   do {
-    if (!(SelectionSC.toLowerCase() === 'no' && SelectionUC.toLowerCase() === 'no'  && SelectionLC.toLowerCase() === 'no'  && SelectionN.toLowerCase() === 'no' ) || (SelectionSC.toLowerCase() === 'n' && SelectionUC.toLowerCase() === 'n' && SelectionLC.toLowerCase() === 'n' && SelectionN.toLowerCase() === 'n')) {
-      quit = true;
-    }
-    else {
+    if ((SelectionSC.toLowerCase() === 'no' && SelectionUC.toLowerCase() === 'no'  && SelectionLC.toLowerCase() === 'no'  && SelectionN.toLowerCase() === 'no' ) || (SelectionSC.toLowerCase() === 'n' && SelectionUC.toLowerCase() === 'n' && SelectionLC.toLowerCase() === 'n' && SelectionN.toLowerCase() === 'n')) {
       window.alert("You must select at least one character type to continue.");
       SelectionSC = prompt("Do you want to include Special Characters? enter yes/no or y/n");
       SelectionUC = prompt("Do you want to include Upper Case Characters? enter yes/no or y/n");
       SelectionLC = prompt("Do you want to include Lower Case Characters? enter yes/no or y/n");
       SelectionN = prompt("Do you want to include Numerials? enter yes/no or y/n");
+    }
+    else {
+      quit = true;
     }
   } while (!quit);
 
@@ -85,7 +87,7 @@ function generatePassword() {
 // selected Special Characters, Upper Case and Low Case
     if ((SelectionSC.toLowerCase() === 'yes' && SelectionUC.toLowerCase() === 'yes' && SelectionLC.toLowerCase() === 'yes' && SelectionN.toLowerCase() === 'no') || (SelectionSC.toLowerCase() === 'y' && SelectionUC.toLowerCase() === 'y' && SelectionLC.toLowerCase() === 'y' && SelectionN.toLowerCase() === 'n')) {
       criteria = AlphaChar.concat(UpperAlphaChar, AlphaChar);
-      output += AlphaChar[getRandomInt(0, criteria.length)];
+      output += criteria[getRandomInt(0, criteria.length)];
     }
 
 // selected Special Character only
@@ -103,22 +105,62 @@ function generatePassword() {
 // selected Lower Case only
     if ((SelectionSC.toLowerCase() === 'no' && SelectionUC.toLowerCase() === 'no' && SelectionLC.toLowerCase() === 'yes' && SelectionN.toLowerCase() === 'no') || (SelectionSC.toLowerCase() === 'n' && SelectionUC.toLowerCase() === 'n' && SelectionLC.toLowerCase() === 'y' && SelectionN.toLowerCase() === 'n')) {
       criteria = AlphaChar;
-      output += AlphaChar[getRandomInt(0, criteria.length)];
+      output += criteria[getRandomInt(0, criteria.length)];
     }
 
 //selected Number only
     if ((SelectionSC.toLowerCase() === 'no' && SelectionUC.toLowerCase() === 'no' && SelectionLC.toLowerCase() === 'no' && SelectionN.toLowerCase() === 'yes') || (SelectionSC.toLowerCase() === 'n' && SelectionUC.toLowerCase() === 'n' && SelectionLC.toLowerCase() === 'n' && SelectionN.toLowerCase() === 'y')) {
       criteria = NumericChar;
-      output += AlphaChar[getRandomInt(0, criteria.length)];
+      output += criteria[getRandomInt(0, criteria.length)];
     }
-    
+// selected Upper Case, Lower Case and Number
+    if ((SelectionSC.toLowerCase() === 'no' && SelectionUC.toLowerCase() === 'yes' && SelectionLC.toLowerCase() === 'yes' && SelectionN.toLowerCase() === 'yes') || (SelectionSC.toLowerCase() === 'n' && SelectionUC.toLowerCase() === 'y' && SelectionLC.toLowerCase() === 'y' && SelectionN.toLowerCase() === 'y'))  {
+      criteria = UpperAlphaChar.concat(AlphaChar, NumericChar);
+      output += criteria[getRandomInt(0, criteria.length)];
+    }
+
+// selected Special Characters and Lower Case
+    if ((SelectionSC.toLowerCase() === 'yes' && SelectionUC.toLowerCase() === 'no' && SelectionLC.toLowerCase() === 'yes' && SelectionN.toLowerCase() === 'no') || (SelectionSC.toLowerCase() === 'y' && SelectionUC.toLowerCase() === 'n' && SelectionLC.toLowerCase() === 'y' && SelectionN.toLowerCase() === 'n')) {
+      criteria = SpecialChar.concat(AlphaChar);
+      output += criteria[getRandomInt(0, criteria.length)];
+    }
+
+// selected Special Characters and Numbers
+    if ((SelectionSC.toLowerCase() === 'yes' && SelectionUC.toLowerCase() === 'no' && SelectionLC.toLowerCase() === 'no' && SelectionN.toLowerCase() === 'yes') || (SelectionSC.toLowerCase() === 'y' && SelectionUC.toLowerCase() === 'n' && SelectionLC.toLowerCase() === 'n' && SelectionN.toLowerCase() === 'y')) {
+      criteria = SpecialChar.concat(NumericChar);
+      output += criteria[getRandomInt(0, criteria.length)];
+    }
+
+// selected Special Characters and Upper Case
+    if ((SelectionSC.toLowerCase() === 'yes' && SelectionUC.toLowerCase() === 'yes' && SelectionLC.toLowerCase() === 'no' && SelectionN.toLowerCase() === 'no') || (SelectionSC.toLowerCase() === 'y' && SelectionUC.toLowerCase() === 'y' && SelectionLC.toLowerCase() === 'n' && SelectionN.toLowerCase() === 'n')) {
+      criteria = SpecialChar.concat(UpperAlphaChar);
+      output += criteria[getRandomInt(0, criteria.length)];
+    }
+
+// selected Upper Case and Lower Case
+    if ((SelectionSC.toLowerCase() === 'no' && SelectionUC.toLowerCase() === 'yes' && SelectionLC.toLowerCase() === 'yes' && SelectionN.toLowerCase() === 'no') || (SelectionSC.toLowerCase() === 'n' && SelectionUC.toLowerCase() === 'y' && SelectionLC.toLowerCase() === 'y' && SelectionN.toLowerCase() === 'n')) {
+      criteria = UpperAlphaChar.concat(AlphaChar);
+      output += criteria[getRandomInt(0, criteria.length)];
+    }
+
+// selected Upper Case and Number
+    if ((SelectionSC.toLowerCase() === 'no' && SelectionUC.toLowerCase() === 'yes' && SelectionLC.toLowerCase() === 'no' && SelectionN.toLowerCase() === 'yes') || (SelectionSC.toLowerCase() === 'n' && SelectionUC.toLowerCase() === 'y' && SelectionLC.toLowerCase() === 'n' && SelectionN.toLowerCase() === 'y')) {
+      criteria = UpperAlphaChar.concat(NumericChar);
+      output += criteria[getRandomInt(0, criteria.length)];
+    }
+
+// selected Lower Case and Number
+    if ((SelectionSC.toLowerCase() === 'no' && SelectionUC.toLowerCase() === 'no' && SelectionLC.toLowerCase() === 'yes' && SelectionN.toLowerCase() === 'yes') || (SelectionSC.toLowerCase() === 'n' && SelectionUC.toLowerCase() === 'n' && SelectionLC.toLowerCase() === 'y' && SelectionN.toLowerCase() === 'y')) {
+      criteria = AlphaChar.concat(NumericChar);
+      output += criteria[getRandomInt(0, criteria.length)];
+    }
+  
   }
   
   return output.toString();
 }
 
 // generator a random number between 0 and the maximum number of possible characters from choosen password criteria 
-// credit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
