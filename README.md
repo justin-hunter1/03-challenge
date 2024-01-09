@@ -26,20 +26,19 @@ refer to LICENSE in repo.
 ## Screenshots
 
     Main page
-    ![main page](Assets/images/main-page.png)
+![main page](Assets/images/main-page.png)
 
     Prompt for password length
-    ![password](Assets/images/prompt%20for%20password%20length.png)
+![password](Assets/images/prompt%20for%20password%20length.png)
 
     Error prompt if password length does not meet requirement
-    ![password error](Assets/images/invalid%20entry%20for%20password%20length.png)
+![password error](Assets/images/invalid%20entry%20for%20password%20length.png)
     
     Prompt for each type of password character
-    ![character](Assets/images/prompt%20for%20password%20criteria.png)
+![character](Assets/images/prompt%20for%20password%20criteria.png)
 
     Error prompt if password character selection does not meet requirement
-    ![character error](Assets/images/invalid%20prompt%20for%20password%20criteria.png)
-
+![character error](Assets/images/invalid%20prompt%20for%20password%20criteria.png)
 
 ## To-Do's
 
