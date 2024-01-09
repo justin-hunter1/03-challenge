@@ -1,28 +1,45 @@
-# 03 JavaScript: Password Generator
+# 03-Challenge Password Generator using JS
+
+## Description
+
+    This is a Password Generator Application using JavaScript. 
 
 
-## User Story
+## Installation
 
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
+to deploy repo as website on github (step-by-step) https://everhour.com/blog/how-to-host-website-on-github/ (credit to: Maria Kharlantseva)
 
 
-## Acceptance Criteria
+## License
 
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
+refer to LICENSE in repo.
+
+
+## Credits
+
+    HTML & CSS provide by class work
+
+    source to generator random integer to use for obtaining array index :
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    
+
+## Screenshots
+
+    Main page
+    ![main page](Assets/images/main-page.png)
+
+    Prompt for password length
+    ![password](Assets/images/prompt%20for%20password%20length.png)
+
+    Error prompt if password length does not meet requirement
+    ![password error](Assets/images/invalid%20entry%20for%20password%20length.png)
+    
+    Prompt for each type of password character
+    ![character](Assets/images/prompt%20for%20password%20criteria.png)
+
+    Error prompt if password character selection does not meet requirement
+    ![character error](Assets/images/invalid%20prompt%20for%20password%20criteria.png)
+
+
+## To-Do's
 
